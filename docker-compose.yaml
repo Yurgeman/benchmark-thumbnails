@@ -71,21 +71,21 @@ services:
       - IMAGEPROXY_CACHE=memory:100:24h
       - IMAGEPROXY_SCALEUP=true
 
-  weserv-images:
-    build:
-      context: .
-      dockerfile: ./.docker/weserv-images/Dockerfile
-    ports:
-      - 8088:80
-    restart: always
+#   weserv-images:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/weserv-images/Dockerfile
+#     ports:
+#       - 8088:80
+#     restart: always
 
-  weserv-images-cache:
-    build:
-      context: .
-      dockerfile: ./.docker/weserv-images/Dockerfile.cache
-    ports:
-      - 8089:80
-    restart: always
+#   weserv-images-cache:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/weserv-images/Dockerfile.cache
+#     ports:
+#       - 8089:80
+#     restart: always
 
 #   flyimg:
 #     build:
