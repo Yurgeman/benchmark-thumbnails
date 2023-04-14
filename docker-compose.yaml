@@ -4,7 +4,7 @@ services:
   imgproxy:
     image: darthsim/imgproxy:v3.6.0
     ports:
-      - 8080:8080
+      - 8089:8080
     restart: always
     environment:
       - IMGPROXY_MAX_SRC_RESOLUTION=18.0
