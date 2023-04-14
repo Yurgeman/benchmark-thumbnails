@@ -35,25 +35,25 @@ services:
     environment:
       PORT: 80
 
-  picfit:
-    build:
-      context: .
-      dockerfile: ./.docker/picfit/Dockerfile
-    ports:
-      - 8084:3001
-    restart: always
-    environment:
-      - PICFIT_CONFIG_PATH=/config.json
+#   picfit:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/picfit/Dockerfile
+#     ports:
+#       - 8084:3001
+#     restart: always
+#     environment:
+#       - PICFIT_CONFIG_PATH=/config.json
 
-  picfit-cache:
-    build:
-      context: .
-      dockerfile: ./.docker/picfit/Dockerfile
-    ports:
-      - 8085:3001
-    restart: always
-    environment:
-      - PICFIT_CONFIG_PATH=/config_cache.json
+#   picfit-cache:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/picfit/Dockerfile
+#     ports:
+#       - 8085:3001
+#     restart: always
+#     environment:
+#       - PICFIT_CONFIG_PATH=/config_cache.json
 
   imageproxy:
     image: ghcr.io/willnorris/imageproxy:v0.11.2
