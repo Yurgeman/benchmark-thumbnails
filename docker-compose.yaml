@@ -9,31 +9,31 @@ services:
     environment:
       - IMGPROXY_MAX_SRC_RESOLUTION=18.0
 
-  thumbor:
-    image: minimalcompact/thumbor:7.0.0
-    ports:
-      - 8081:80
-    restart: always
+#   thumbor:
+#     image: minimalcompact/thumbor:7.0.0
+#     ports:
+#       - 8081:80
+#     restart: always
 
-  thumbor-cache:
-    image: minimalcompact/thumbor:7.0.0
-    ports:
-      - 8082:80
-    restart: always
-    environment:
-      - RESULT_STORAGE_EXPIRATION_SECONDS=3600
-      - RESULT_STORAGE_FILE_STORAGE_ROOT_PATH=/tmp/thumbor/result_storage
-      - RESULT_STORAGE_STORES_UNSAFE=True
-      - RESULT_STORAGE=thumbor.result_storages.file_storage
+#   thumbor-cache:
+#     image: minimalcompact/thumbor:7.0.0
+#     ports:
+#       - 8082:80
+#     restart: always
+#     environment:
+#       - RESULT_STORAGE_EXPIRATION_SECONDS=3600
+#       - RESULT_STORAGE_FILE_STORAGE_ROOT_PATH=/tmp/thumbor/result_storage
+#       - RESULT_STORAGE_STORES_UNSAFE=True
+#       - RESULT_STORAGE=thumbor.result_storages.file_storage
 
-  imaginary:
-    image: h2non/imaginary:1.2.4
-    command: -enable-url-source
-    ports:
-      - 8083:80
-    restart: always
-    environment:
-      PORT: 80
+#   imaginary:
+#     image: h2non/imaginary:1.2.4
+#     command: -enable-url-source
+#     ports:
+#       - 8083:80
+#     restart: always
+#     environment:
+#       PORT: 80
 
 #   picfit:
 #     build:
@@ -55,21 +55,21 @@ services:
 #     environment:
 #       - PICFIT_CONFIG_PATH=/config_cache.json
 
-  imageproxy:
-    image: ghcr.io/willnorris/imageproxy:v0.11.2
-    ports:
-      - 8086:8080
-    restart: always
-    environment:
-      - IMAGEPROXY_SCALEUP=true
+#   imageproxy:
+#     image: ghcr.io/willnorris/imageproxy:v0.11.2
+#     ports:
+#       - 8086:8080
+#     restart: always
+#     environment:
+#       - IMAGEPROXY_SCALEUP=true
 
-  imageproxy-cache:
-    image: ghcr.io/willnorris/imageproxy:v0.11.2
-    ports:
-      - 8087:8080
-    environment:
-      - IMAGEPROXY_CACHE=memory:100:24h
-      - IMAGEPROXY_SCALEUP=true
+#   imageproxy-cache:
+#     image: ghcr.io/willnorris/imageproxy:v0.11.2
+#     ports:
+#       - 8087:8080
+#     environment:
+#       - IMAGEPROXY_CACHE=memory:100:24h
+#       - IMAGEPROXY_SCALEUP=true
 
 #   weserv-images:
 #     build:
@@ -95,21 +95,21 @@ services:
 #       - 8090:80
 #     restart: always
 
-  mort:
-    build:
-      context: .
-      dockerfile: ./.docker/mort/Dockerfile
-    ports:
-      - 8091:80
-    restart: always
+#   mort:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/mort/Dockerfile
+#     ports:
+#       - 8091:80
+#     restart: always
 
-  mort-cache:
-    build:
-      context: .
-      dockerfile: ./.docker/mort/Dockerfile.cache
-    ports:
-      - 8092:80
-    restart: always
+#   mort-cache:
+#     build:
+#       context: .
+#       dockerfile: ./.docker/mort/Dockerfile.cache
+#     ports:
+#       - 8092:80
+#     restart: always
 
 networks:
   default:
